@@ -1,11 +1,11 @@
-package tests;
+package test_project.tests;
 
-import config.Project;
-import helpers.AllureAttachments;
-import helpers.DriverSettings;
+import test_project.config.Project;
+import test_project.helpers.AllureAttachments;
+import test_project.helpers.DriverSettings;
+import test_project.helpers.DriverUtils;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import helpers.DriverUtils;
 import io.qameta.allure.junit5.AllureJunit5;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;

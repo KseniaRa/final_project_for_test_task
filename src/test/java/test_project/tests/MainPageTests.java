@@ -1,22 +1,20 @@
-package tests;
+package test_project.tests;
 
-import helpers.DriverUtils;
-import io.qameta.allure.Description;
+
+import test_project.helpers.DriverUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.title;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.title;
-import static io.qameta.allure.Allure.step;
 
-public class MainPageTests extends TestBase{
+public class MainPageTests extends TestBase {
 
     @Test
+    @DisplayName("Page title should have header text")
     void titleTest() {
         step("Open url 'https://www.vprok.ru/'", () ->
                 open("https://www.vprok.ru/"));
@@ -24,39 +22,36 @@ public class MainPageTests extends TestBase{
         step("Page title should have text 'Vprok.ru Перекрёсток – доставка продуктов на дом и на дачу Впрок'", () -> {
             String expectedTitle = "Vprok.ru Перекрёсток – доставка продуктов на дом и на дачу Впрок";
             String actualTitle = title();
-
             assertThat(actualTitle).isEqualTo(expectedTitle);
         });
     }
 
 
+    @Test
+    @DisplayName("Перейти на страницу Каталога")
+    void testCatalog(){
+        step("Open url 'https://www.vprok.ru/'", () ->
+                open("https://www.vprok.ru/"));
+        step("Перейти на страницу Каталога", () -> {
+            $(".xfnew-header__catalog-button").click();
+            $$(".fo-catalog-menu").findBy(text("Молоко, сыр, яйца")).click();
+        });
+    }
 
     @Test
-    void searchLineTest() {
-        step("открыть \"https://www.vprok.ru/\"", () -> {
-            step("// todo: just add selenium action");
-        });
-
-        step("ввести поисковую строку \"Петрушка\"", () -> {
-            step("// todo: just add selenium action");
-        });
-
-        step("нажать на поиск", () -> {
-            step("// todo: just add selenium action");
-        });
-
-        step("убедиться что на странице есть слова \"результаты поиска\"", () -> {
-            step("// todo: just add selenium action");
+    @DisplayName("Сменить регион")
+    void testChangeRegion(){
+        step("Open url 'https://www.vprok.ru/'", () ->
+                open("https://www.vprok.ru/"));
+        step("Регион", () -> {
+            $(".xfnew-header__change-region").click();
+            $(".xf-popup-polygons__block-check-region").shouldHave(text("Выберите ваш регион"));
         });
     }
 
 
-
-
-
-
-
     @Test
+    @DisplayName("Page console log should not have errors")
     void consoleShouldNotHaveErrorsTest() {
         step("Open url 'https://www.vprok.ru/'", () ->
                 open("https://www.vprok.ru/"));
@@ -68,4 +63,5 @@ public class MainPageTests extends TestBase{
             assertThat(consoleLogs).doesNotContain(errorText);
         });
     }
+
 }

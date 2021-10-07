@@ -1,4 +1,5 @@
-package helpers;
+package test_project.helpers;
+
 import io.qameta.allure.restassured.AllureRestAssured;
 
 public class AllureRestAssuredFilter {

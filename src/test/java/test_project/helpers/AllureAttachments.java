@@ -1,4 +1,5 @@
-package helpers;
+package test_project.helpers;
+
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import org.slf4j.Logger;

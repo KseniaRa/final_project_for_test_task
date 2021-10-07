@@ -1,12 +1,12 @@
-package helpers;
+package test_project.helpers;
 
+import test_project.config.Project;
 import com.codeborne.selenide.Selenide;
-import config.Project;
-import org.junit.platform.commons.logging.Logger;
-import org.junit.platform.commons.logging.LoggerFactory;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -46,9 +46,4 @@ public class DriverUtils {
     public static String getConsoleLogs() { // todo refactor
         return String.join("\n", Selenide.getWebDriverLogs(BROWSER));
     }
-
-
-
 }
-
-

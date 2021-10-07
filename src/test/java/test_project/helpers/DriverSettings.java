@@ -1,6 +1,7 @@
-package helpers;
+package test_project.helpers;
+
+import test_project.config.Project;
 import com.codeborne.selenide.Configuration;
-import config.Project;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 

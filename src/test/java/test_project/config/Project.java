@@ -1,4 +1,5 @@
-package config;
+package test_project.config;
+
 import org.aeonbits.owner.ConfigFactory;
 
 public class Project {
