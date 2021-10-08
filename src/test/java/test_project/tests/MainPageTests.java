@@ -22,7 +22,7 @@ public class MainPageTests extends TestBase {
         step("Open url 'https://www.vprok.ru/'", () ->
                 open("https://www.vprok.ru/"));
 
-        step("Page title should have text 'Vprok.ru Перекрёсток – доставка продуктов на дом и на дачу Впрок'", () -> {
+        step("Проверяем название", () -> {
             String expectedTitle = "Vprok.ru Перекрёсток – доставка продуктов на дом и на дачу Впрок";
             String actualTitle = title();
             assertThat(actualTitle).isEqualTo(expectedTitle);
