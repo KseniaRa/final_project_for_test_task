@@ -40,7 +40,7 @@ public class AllureAttachments {
             InputStream videoInputStream = null;
             sleep(1000);
 
-            for (int i = 0; i < 30; i++) {
+            for (int i = 0; i < 40; i++) {
                 try {
                     videoInputStream = videoUrl.openStream();
                     break;
