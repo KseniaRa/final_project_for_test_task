@@ -19,7 +19,7 @@ public class MainPageTests extends TestBase {
     @Test
     @DisplayName("Page title should have header text")
     void titleTest() {
-            open("https://www.vprok.ru/");
+            open("/");
             String expectedTitle = "Vprok.ru Перекрёсток – доставка продуктов на дом и на дачу Впрок";
             String actualTitle = title();
             assertThat(actualTitle).isEqualTo(expectedTitle);
@@ -30,7 +30,7 @@ public class MainPageTests extends TestBase {
     @DisplayName("Вход/Регистрация")
     void loginTest() {
 
-             open("https://www.vprok.ru/");
+             open("/");
              $(".xfnew-header__user-nav:nth-child(5)").click();
              $(".xf-auth-title__text")
                         .shouldHave(text("Вход или регистрация"));
@@ -40,7 +40,7 @@ public class MainPageTests extends TestBase {
     @Test
     @DisplayName("Попап регионов")
     void regionTest() {
-            open("https://www.vprok.ru/");
+            open("/");
             $(".xfnew-header__change-region").click();
             $(".xf-popup-polygons__block-check-region")
                     .shouldHave(text("Выберите ваш регион"));
@@ -50,7 +50,7 @@ public class MainPageTests extends TestBase {
     @Test
     @DisplayName("Открыть страницу с акциями")
     void promoTest() {
-                open("https://www.vprok.ru/");
+                open("/");
                 $(byText("Акции")).click();
                 $(".xf-caption__title")
                         .shouldHave(text("Акции"));
@@ -60,7 +60,7 @@ public class MainPageTests extends TestBase {
     @Test
     @DisplayName("Открыть раздел Каталога")
     void testCatalog(){
-                open("https://www.vprok.ru/");
+                open("/");
                 $(".xfnew-header__catalog-button").click();
                 $$(".fo-catalog-menu__nav a").
                         findBy(text("Молоко, сыр, яйца")).click();
@@ -74,7 +74,7 @@ public class MainPageTests extends TestBase {
     @Test
     @DisplayName("Открыть новость")
     void newsTest() {
-                open("https://www.vprok.ru/");
+                open("/");
                 $(".xf-mp-recipe-news__list").scrollIntoView(true).click();
                 $(".xf-mp-recipe-news__img-block").click();
 
@@ -86,7 +86,7 @@ public class MainPageTests extends TestBase {
     @Test
     @DisplayName("Page console log should not have errors")
     void consoleShouldNotHaveErrorsTest() {
-                open("https://www.vprok.ru/");
+            open("/");
             String consoleLogs = DriverUtils.getConsoleLogs();
             String errorText = "SEVERE";
 
